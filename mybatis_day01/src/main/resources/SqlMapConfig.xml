@@ -22,7 +22,11 @@
     </environments>
     <!--指定配置映射文件地址-->
     <mappers>
+        <!--使用xml 配置方式-->
         <mapper resource="com/lingyun/mapper/UserMapper.xml"></mapper>
+        <!--使用注解的方式-->
+        <!--<mapper class="com.lingyun.dao.UserDao"></mapper>-->
+
     </mappers>
 </configuration>
 

@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingyun.dao.UserDao">
+
+    <select id="findAll" resultType="com.lingyun.bean.User">
+        select * from user
+    </select>
+
+    <select id="findOne" resultType="com.lingyun.bean.User">
+        select * from user
+        <where>
+            <if test="name !=null">
+                and name= #{name}
+            </if>
+            <if test="password !=null">
+                and pasupdateUsersword =#{password}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addUser">
+        insert  into user (name,create_time,update_time,level,role,password)
+        values(#{name},#{createTime},#{updateTime},#{level},#{role},#{password})
+    </insert>
+
+    <delete id="deleteUser">
+        delete from user where id=#{id}
+    </delete>
+
+    <update id="updateUser">
+         update user set name=#{name} , create_time=#{createTime},update_time=#{createTime},
+         level=#{level},role=#{role},password=#{password}
+    </update>
+
+</mapper>
